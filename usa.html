@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>USA Remote Jobs | Work From Home Opportunities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --dark: #0f172a;
+            --bg: #f8fafc;
+            --text-gray: #64748b;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span { color: var(--primary); }
+        
+        .hero {
+            padding: 60px 5% 15px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+        
+        .ad-container {
+            max-width: 800px;
+            margin: 15px auto;
+            padding: 0 20px;
+            text-align: center;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        .ad-wrapper {
+            background: white;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 12px;
+            display: inline-block;
+            width: 100%;
+            max-width: 492px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);
+        }
+        .ad-label {
+            font-size: 10px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 10px;
+            margin: 10px auto 35px;
+            max-width: 800px;
+            padding: 0 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+        .category-filters::-webkit-scrollbar {
+            display: none;
+        }
+        .category-badge {
+            background: white;
+            color: var(--dark);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease-in-out;
+        }
+        .category-badge:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .section-header h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .job-list {
+            display: grid;
+            gap: 12px;
+        }
+        .job-card {
+            background: white;
+            padding: 20px 24px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease-in-out;
+        }
+        .job-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+            transform: translateY(-2px);
+        }
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+        .job-meta {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .job-pill {
+            background: #f0fdf4;
+            color: #16a34a;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .apply-btn {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .job-card:hover .apply-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        footer {
+            background: white;
+            border-top: 1px solid var(--border);
+            padding: 30px 5%;
+            text-align: center;
+            margin-top: auto;
+        }
+        .footer-links {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            .job-card { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .apply-btn { width: 100%; text-align: center; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">USARemote<span>Jobs</span></a>
+    </header>
+
+    <div class="ad-container" style="margin-top: 25px;">
+        <div class="ad-wrapper">
+            <div class="ad-label">Advertisement</div>
+            <script>
+                atOptions = {
+                    'key' : '1a3228e92dc53e303f6535c4b403ab8f',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://www.highperformanceformat.com/1a3228e92dc53e303f6535c4b403ab8f/invoke.js"></script>
+        </div>
+    </div>
+
+    <section class="hero">
+        <h1>Find Your Next Remote Job in USA</h1>
+        <p>Explore curated work-from-home career positions across tech, marketing, administration, and customer service.</p>
+    </section>
+
+    <div class="category-filters">
+        <a href="/" class="category-badge">✨ All Jobs</a>
+        <a href="#" class="category-badge">💻 Tech & Dev</a>
+        <a href="#" class="category-badge">🎧 Customer Support</a>
+        <a href="#" class="category-badge">📈 Marketing & Sales</a>
+        <a href="#" class="category-badge">⚙️ Operations</a>
+    </div>
+
+    <main class="container">
+        <div class="section-header">
+            <h2>Latest USA Opportunities</h2>
+        </div>
+        
+        <div class="job-list">
+            
+            <a href="/job/remote-work-creative-evaluator-part-6743.html" class="job-card">
+                <div>
+                    <div class="job-title">Creative Evaluator (Part</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-customer-specialist-6740.html" class="job-card">
+                <div>
+                    <div class="job-title">Customer Specialist</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-southwest-airlines-data-entry-job-at-home-virtual-assistant-jobs-3782.html" class="job-card">
+                <div>
+                    <div class="job-title">(Southwest Airlines Data Entry job at home) Virtual Assistant Jobs</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-delta-airlines-work-from-home-jobs-6732.html" class="job-card">
+                <div>
+                    <div class="job-title">Delta Airlines Work From Home Jobs</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-remote-jobs-revenue-cycle-analyst-i-amazon-health-revenue-cycle-6728.html" class="job-card">
+                <div>
+                    <div class="job-title">REMOTE JOBS Revenue Cycle Analyst I, Amazon Health Revenue Cycle</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-social-media-manager-work-from-home-6722.html" class="job-card">
+                <div>
+                    <div class="job-title">Social Media Manager Work From Home</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-customer-service-advocate-ii-6718.html" class="job-card">
+                <div>
+                    <div class="job-title">Customer Service Advocate II</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-customer-specialist-6740.html" class="job-card">
+                <div>
+                    <div class="job-title">Customer Specialist</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-fully-remote-amazon-customer-service-6710.html" class="job-card">
+                <div>
+                    <div class="job-title">[Fully Remote] Amazon Customer Service</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-work-freight-handler-part-6707.html" class="job-card">
+                <div>
+                    <div class="job-title">Freight Handler Part</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-associate-system-administrator-1626.html" class="job-card">
+                <div>
+                    <div class="job-title">Associate System Administrator</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-remote-data-entry-work-from-home-6700.html" class="job-card">
+                <div>
+                    <div class="job-title">Remote Data Entry Work From Home</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/apple-home-advisor-remote-work-opportunity-united-states-6693.html" class="job-card">
+                <div>
+                    <div class="job-title">Apple Home Advisor (Remote Work Opportunity) – United States</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/walmart-jobs-remote-40h-6689.html" class="job-card">
+                <div>
+                    <div class="job-title">Walmart Jobs (Remote) $40/H</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/entry-level-data-entry-clerk-part-time-6685.html" class="job-card">
+                <div>
+                    <div class="job-title">Entry Level Data Entry Clerk – Part Time</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-data-entry-clerk-typing-fully-remote-6684.html" class="job-card">
+                <div>
+                    <div class="job-title">Data Entry Clerk Typing Fully Remote</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-work-amazon-home-office-hero-remote-fulfillment-assistant-6679.html" class="job-card">
+                <div>
+                    <div class="job-title">Amazon Home Office Hero – Remote Fulfillment Assistant</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/vxi-us-virtual-4597.html" class="job-card">
+                <div>
+                    <div class="job-title">US Virtual</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-remote-part-3238.html" class="job-card">
+                <div>
+                    <div class="job-title">[Remote Part</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-customer-service-technical-representative-remote-6668.html" class="job-card">
+                <div>
+                    <div class="job-title">Customer Service Technical Representative (Remote)</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-southwest-airline-jobs-work-at-home-20h-part-6662.html" class="job-card">
+                <div>
+                    <div class="job-title">Southwest Airline Jobs Work At Home $20/H – (Part</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-work-amazon-data-entry-jobs-from-home-171.html" class="job-card">
+                <div>
+                    <div class="job-title">Amazon Data Entry Jobs from home</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-fully-remote-amazon-data-entry-jobs-urgent-4204.html" class="job-card">
+                <div>
+                    <div class="job-title">Remote Amazon Data Entry Jobs (URGENT)</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-american-airlines-remote-work-from-home-jobs-600.html" class="job-card">
+                <div>
+                    <div class="job-title">American Airlines</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-amazon-customer-service-center-work-from-home-up-to-35hr-6648.html" class="job-card">
+                <div>
+                    <div class="job-title">Amazon customer service center (work from home) up to $35/hr</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-remote-part-time-data-entry-jobs-4734.html" class="job-card">
+                <div>
+                    <div class="job-title">Remote Part Time Data Entry Jobs</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-work-entry-levelno-experience-amazon-work-from-home-jobs-apply-now-6087.html" class="job-card">
+                <div>
+                    <div class="job-title">[Entry Level/No Experience] Amazon Work from Home Jobs</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-benefits-partner-2274.html" class="job-card">
+                <div>
+                    <div class="job-title">Part</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-work-from-home-delta-data-entry-jobs-immediate-openings-6630.html" class="job-card">
+                <div>
+                    <div class="job-title">Work From Home Delta Data Entry Jobs [Immediate Openings]</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-amazon-specialist-4150.html" class="job-card">
+                <div>
+                    <div class="job-title">Amazon Specialist</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-part-time-licensed-mental-health-therapist-remote-6622.html" class="job-card">
+                <div>
+                    <div class="job-title">Part Time Licensed Mental Health Therapist – Remote</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-online-amazon-chat-jobs-work-from-home-remote-6618.html" class="job-card">
+                <div>
+                    <div class="job-title">Online Amazon Chat Jobs Work From Home (REMOTE)</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/sales-account-executive-6613.html" class="job-card">
+                <div>
+                    <div class="job-title">Sales Account Executive</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-customer-assistance-representative-6612.html" class="job-card">
+                <div>
+                    <div class="job-title">Customer Assistance Representative</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-data-entry-ampamp-verification-specialist-delta-air-lines-part-529.html" class="job-card">
+                <div>
+                    <div class="job-title">Delta Air Lines Part</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/entry-level-data-entry-fully-remote-information-technology-specialists-6601.html" class="job-card">
+                <div>
+                    <div class="job-title">Entry Level Data Entry (Fully Remote) Information Technology Specialists</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-remote-data-entry-operator-part-6598.html" class="job-card">
+                <div>
+                    <div class="job-title">Remote Data Entry Operator / Part</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/manager-6593.html" class="job-card">
+                <div>
+                    <div class="job-title">Manager</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-work-entry-levelno-experience-amazon-work-from-home-jobs-apply-now-6087.html" class="job-card">
+                <div>
+                    <div class="job-title">[Entry Level/No Experience] Amazon Work from Home Jobs</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-work-careermilard-depot-remote-home-work-25hour-virtual-jobs-6587.html" class="job-card">
+                <div>
+                    <div class="job-title">Careermilard Depot Remote Home Work $25/hour ( Virtual Jobs )</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-work-law-enforcement-response-specialists-us-4955.html" class="job-card">
+                <div>
+                    <div class="job-title">Law Enforcement Response Specialists US</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-american-express-customer-service-job-remote-6578.html" class="job-card">
+                <div>
+                    <div class="job-title">American Express Customer Service Job (Remote)</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/work-from-home-hour-6573.html" class="job-card">
+                <div>
+                    <div class="job-title">Work From Home $/Hour</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/work-from-home-customer-service-part-time-remote-6569.html" class="job-card">
+                <div>
+                    <div class="job-title">WORK FROM HOME CUSTOMER SERVICE / PART TIME REMOTE</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-work-avp-credit-sales-manager-j-crew-6567.html" class="job-card">
+                <div>
+                    <div class="job-title">AVP, Credit Sales Manager – J Crew</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-amazon-immediate-data-entry-jobs-opening-6562.html" class="job-card">
+                <div>
+                    <div class="job-title">Amazon Immediate Data Entry Jobs Opening</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-benefits-partner-2274.html" class="job-card">
+                <div>
+                    <div class="job-title">Part</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-aetna-data-entry-customer-service-jobs-work-from-home-25hour-984.html" class="job-card">
+                <div>
+                    <div class="job-title">Work</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-join-today-customer-service-lead-luxury-stores-customer-service-6552.html" class="job-card">
+                <div>
+                    <div class="job-title">Join Today: Customer Service Lead, Luxury Stores Customer Service</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-healthcare-customer-service-remote-pm-shift-6548.html" class="job-card">
+                <div>
+                    <div class="job-title">Healthcare Customer Service (Remote) PM Shift</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-work-at-home-chat-support-agent-6542.html" class="job-card">
+                <div>
+                    <div class="job-title">Work at Home Chat Support Agent</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-aetna-data-entry-customer-service-jobs-work-from-home-25hour-984.html" class="job-card">
+                <div>
+                    <div class="job-title">Home</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/amazon-jobs-at-home-5085.html" class="job-card">
+                <div>
+                    <div class="job-title">Amazon jobs at home</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-sales-representative-remote-6532.html" class="job-card">
+                <div>
+                    <div class="job-title">Sales Representative (Remote</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-aetna-data-entry-customer-service-jobs-work-from-home-25hour-984.html" class="job-card">
+                <div>
+                    <div class="job-title">Customer Service</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-work-work-at-home-amazon-customer-service-center-up-to-25hr-6523.html" class="job-card">
+                <div>
+                    <div class="job-title">(Work At Home) Amazon Customer Service Center Up to $25/hr</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/new-opening-work-from-home-with-disney-exciting-remote-data-entry-careers-for-beginners-6520.html" class="job-card">
+                <div>
+                    <div class="job-title">“Work From Home With Disney – Exciting Remote Data Entry Careers for Beginners”</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/urgent-hiring-delta-airline-careers-6514.html" class="job-card">
+                <div>
+                    <div class="job-title">Delta Airline Careers</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-work-part-time-data-entry-jobs-delta-airlines-careers-remote-online-jobs-from-home-2179.html" class="job-card">
+                <div>
+                    <div class="job-title">Delta Airlines Careers Remote Online Jobs From Home</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+            <a href="/job/remote-work-netflix-remote-jobs-customer-service-part-time-6507.html" class="job-card">
+                <div>
+                    <div class="job-title">Netflix Remote Jobs Customer Service (Part Time)</div>
+                    <div class="job-meta">
+                        <span>🏢 Remote Company</span>
+                        <span class="job-pill">🇺🇸 US Remote</span>
+                    </div>
+                </div>
+                <div class="apply-btn">View Details</div>
+            </a>
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="ad-container" style="margin-bottom: 20px;">
+            <div class="ad-wrapper">
+                <div class="ad-label">Advertisement</div>
+                <script>
+                    atOptions = {
+                        'key' : '1a3228e92dc53e303f6535c4b403ab8f',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://www.highperformanceformat.com/1a3228e92dc53e303f6535c4b403ab8f/invoke.js"></script>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="/about.html">About Us</a>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--text-gray); margin: 0;">&copy; 2026 USARemoteJobs. All rights reserved.</p>
+    </footer>
+</body>
+</html>
